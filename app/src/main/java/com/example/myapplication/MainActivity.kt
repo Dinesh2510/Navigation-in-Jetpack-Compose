@@ -73,7 +73,7 @@ fun MainPage(navController: NavController) {
             )
         }, actions = {
             IconButton(onClick = {
-                navController.navigate("search")
+                navController.navigate("search/From MainPage")
             }) {
                 Icon(
                     imageVector = Icons.Default.Search,
@@ -89,7 +89,7 @@ fun MainPage(navController: NavController) {
         LazyColumn {
             items(itemList) { food ->
                 MainPageContent(foodItem = food, onVideoClick = {
-                    navController.navigate("detailsPage")
+                    navController.navigate("detailsPage/${food.title}")
                 })
             }
         }
@@ -139,14 +139,17 @@ fun MainPageContent(foodItem: ItemModel, onVideoClick: () -> Unit) {
 /**=========================MainPage END====================*/
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsPage(navController: NavController) {
-
+fun DetailsPage(navController: NavController, foodInfo: String?) {
+    val foodDetail = remember {
+        val videoTitle = foodInfo ?: ""
+        itemList.firstOrNull { it.title == videoTitle }
+    }
 
     Column {
         TopAppBar(
             title = {
                 Text(
-                    "Details Page",
+                    foodDetail!!.title,
                     fontSize = 18.sp,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
@@ -160,7 +163,7 @@ fun DetailsPage(navController: NavController) {
             },
             actions = {
                 IconButton(onClick = {
-                    navController.navigate("search")
+                    navController.navigate("search/from Details Page")
                 }) {
                     Icon(imageVector = Icons.Default.Search, contentDescription = null)
                 }
@@ -169,19 +172,19 @@ fun DetailsPage(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
         )
-        DetailsContent()
+        DetailsContent(foodDetail)
     }
 }
 
 @Composable
-fun DetailsContent() {
+fun DetailsContent(foodDetail: ItemModel?) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.image_1),
+            painter = painterResource(id = foodDetail!!.imageId),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -191,12 +194,12 @@ fun DetailsContent() {
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "our title",
+            text = foodDetail.title,
             style = MaterialTheme.typography.headlineSmall
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "Our Description",
+            text = foodDetail.subtitle,
             textAlign = TextAlign.Justify,
             style = MaterialTheme.typography.bodyLarge
         )
@@ -206,13 +209,13 @@ fun DetailsContent() {
 
 /**=========================Details Page END====================*/
 @Composable
-fun SearchPage(navController: NavHostController) {
+fun SearchPage(navController: NavHostController, args: String?) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("This is Search Page ")
+        Text("This is Search Page ${args}")
         Button(onClick = {
             navController.popBackStack("mainPage", false)
         }) {
