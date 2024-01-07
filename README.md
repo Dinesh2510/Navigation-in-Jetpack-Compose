@@ -13,7 +13,11 @@ This repository provides a comprehensive guide and example code for implementing
 - **Handling Arguments**: Explore how to pass data between destinations using Jetpack Compose navigation.
 - **Advanced Navigation Patterns**: Learn advanced navigation patterns to handle complex app flows.
 - **Troubleshooting Tips**: Get insights into common challenges faced during navigation and how to overcome them.
-Screenshots
+
+## Screenshots
+| Introduction to Navigation | Navigating with arguments |
+| ------------- | ------------- | 
+| [![IMAGE](https://img.youtube.com/vi/wSWUIbbG3Sg/0.jpg)](https://www.youtube.com/watch?v=/wSWUIbbG3Sg)  | [![IMAGE](https://img.youtube.com/vi/cSlvQtdwIGc/0.jpg)](https://www.youtube.com/watch?v=cSlvQtdwIGc)  |
 
 
 ## Getting Started
