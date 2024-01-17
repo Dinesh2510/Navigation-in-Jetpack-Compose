@@ -1,7 +1,11 @@
 # Navigation in Jetpack Compose [MAIN Branch]
 
-# NOTE = Please change the branch to "navigation_part2" to clone or download the "Navigation with Arguments in Jetpack Compose". 
-
+### Navigaiton Projects
+| Name | Branch Name | Clone Url |
+| ------------- | ------------- |  ------------- | 
+| Navigation with compose  | [Main](https://github.com/Dinesh2510/Navigation-in-Jetpack-Compose)  | `git clone https://github.com/Dinesh2510/Navigation-in-Jetpack-Compose.git` |
+| Navigation with Arguments  | [navigation_part2](https://github.com/Dinesh2510/Navigation-in-Jetpack-Compose/tree/navigation_part2)  | `git clone https://github.com/Dinesh2510/Navigation-in-Jetpack-Compose.git -b navigation_part2` |
+| Nested Navigation  | [nested_nav](https://github.com/Dinesh2510/Navigation-in-Jetpack-Compose/tree/nested_nav)  | `git clone https://github.com/Dinesh2510/Navigation-in-Jetpack-Compose.git -b nested_nav` |
 
 ## Overview
 This repository provides a comprehensive guide and example code for implementing navigation in Jetpack Compose, covering fundamental concepts to advanced techniques.
